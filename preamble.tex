@@ -1,0 +1,123 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{etoolbox}
+\usepackage{ifthen}
+
+\newbool{golf}
+\booltrue{golf}
+% \boolfalse{golf}
+\newcommand{\golf}[2]{\ifbool{golf}{#1}{#2}}
+
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{csquotes}
+\usepackage{manfnt}
+
+\usepackage{tikz-cd}
+
+\usepackage[colorinlistoftodos]{todonotes}
+\presetkeys{todonotes}{inline}{}
+%% workaround to make \listoftodos work with amsart
+\makeatletter
+\providecommand\@dotsep{5}
+\def\listtodoname{List of Todos}
+\def\listoftodos{\@starttoc{tdo}\listtodoname}
+\makeatother
+
+\usepackage{letltxmacro}
+\LetLtxMacro{\oldtodo}{\todo}
+\newcounter{todocounter}
+\renewcommand{\todo}[2][]
+{\stepcounter{todocounter}\oldtodo[#1]{\thetodocounter: #2}}
+
+%\newcommand{\lowpriotodo}[2][]{\todo[color=yellow!40,#1]{#2}}
+\newcommand{\lowpriotodo}[2][]{}
+\newcommand{\priotodo}[2][]{\todo[color=red,#1]{#2}}
+\newcommand{\johan}[1]{\todo[author=Johan,color=blue!40]{#1}}
+
+\usepackage{mathtools}
+
+\usepackage{enumitem}
+
+\setlist[enumerate,1]{label=(\textit{\roman*}),
+                      ref  =\thetheorem.(\textit{\roman*})}
+
+\usepackage{hyperref}
+\usepackage[capitalise,nosort,nameinlink]{cleveref}
+
+\crefname{enumi}{}{}
+\crefname{enumii}{}{}
+\crefname{enumiii}{}{}
+
+% \crefname{enumeratei}{item}{items}
+% \crefname{enumerateii}{item}{items}
+% \crefname{enumerateiii}{item}{items}
+
+\usepackage[backend=biber,doi=false,url=false,isbn=false,%
+safeinputenc,sorting=nyt]{biblatex}
+\bibliography{main.bib}
+
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+
+\swapnumbers
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{construction}[definition]{Construction}
+\newtheorem{convention}[definition]{Convention}
+\newtheorem{example}[definition]{Example}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{warning}[definition]{Warning}
+\newtheorem{question}[definition]{Question}
+\newtheorem{notecons}[definition]{Note for constructivists}
+\newtheorem{speculation}[definition]{Speculation}
+\newtheorem{nul}[definition]{}
+
+\theoremstyle{theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{conjecture}[definition]{Conjecture}
+
+% \usepackage[inline]{showlabels}
+% \showlabels{cite}
+% \showlabels{cref}
+% \showlabels{Cref}
+% \renewcommand{\showlabelfont}{\scriptsize\ttfamily\color{blue}}
+
+\newcommand\SetSymbol[1][]{\nonscript\:#1\vert\allowbreak\nonscript\:\mathopen{}}
+\providecommand\given{} % to make it exist
+\DeclarePairedDelimiterX\set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}#1}
+
+\newcommand{\im}{\mathrm{im}}   % image of a function
+
+\newcommand{\NN}{\mathbb{N}}    % the natural numbers (starting from 0)
+\newcommand{\ZZ}{\mathbb{Z}}    % the integers
+\newcommand{\QQ}{\mathbb{Q}}    % the rational numbers
+\newcommand{\RR}{\mathbb{R}}    % the actual real numbers
+\newcommand{\CC}{\mathbb{C}}    % the actual complex numbers
+
+\newcommand{\op}{\mathrm{op}}   % C^\op = opposite category
+
+\newcommand{\Hom}{\mathrm{Hom}} % Hom-set in a category
+\newcommand{\id}{\mathrm{id}}   % identity morphism
+
+\def\ul#1{\underline{#1}}
+\def\ol#1{\overline{#1}}
+\def\mc#1{\mathcal{#1}}
+
+\def\subset{\subseteq}
+
+\def\defeq{\stackrel{\text{def}}{=}}
+
+\definecolor{darkred}{rgb}{0.6,0,0}
+\newcommand{\sorry}{\texttt{\color{darkred}sorry}}
+
+\renewcommand{\emptyset}{\varnothing}
