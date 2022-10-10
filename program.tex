@@ -14,6 +14,138 @@
 
 \maketitle
 
+\begin{abstract}
+  \textbf{Keywords:}
+  o-minimality, diophantine geometry, detailed proofs
+  
+  \medskip\noindent
+  \textbf{Tl;dr:}
+  In this seminar,
+  we will refine our understanding of o-minimal theory
+  by studying in detail the proof of the Pila--Wilkie point counting theorem.
+  After that, we will look at applications of this result in diophantine geometry.
+
+  \medskip\noindent
+  \textbf{Main reference:}
+  We will follow a survey article by Scanlon~\cite{scanlon}.
+\end{abstract}
+
+\section*{Appetizer}
+Consider the following statement (a special case of Manin--Mumford):
+
+\begin{theorem}
+  Let $n > 0$ be a natural number,
+  and let $\mathbb G = (\CC^*)^n$
+  be the $n$-th power of the unit group of the complex numbers.
+  Let $f \in \CC[x_1, \dots, x_n]$ be a polynomial in $n$ variables.
+  Then the set
+  \[
+    X = \{ (\zeta_1, \dots, \zeta_n) \in \mathbb G \mid
+    \text{each $\zeta_i$ is a root of unity and $f(\zeta_1, \dots, \zeta_n) = 0$}\}
+  \]
+  is a finite union of cosets of subgroups of $\mathbb G$.
+\end{theorem}
+
+Originally, this statement was proven by Mann,
+but we will be interested in the Pila--Zannier argument.
+It goes as follows.
+Observe that there is an analytic covering $\exp \colon \CC^n \to \mathbb G$.
+A tuple $\zeta = (\zeta_1, \dots, \zeta_n)$ consists of roots of unity
+if and only if there is some rational $a \in \QQ^n$ such that $\exp(a) = \zeta$.
+This means that we can translate our problem into
+a question about rational solutions to the transcendental equation $f(\exp(z)) = 0$.
+
+It may seem as if we have made the problem a lot more difficult.
+However, by restricting to a fundamental domain
+\[
+  D = \{ (z_1, \dots, z_n) \in \CC^n \mid 0 \le \Re(z_i) < 2\pi \text{ for each $i$}\}
+\]
+we end up in a \emph{tame} situation.
+
+\begin{enumerate}
+  \item It is again the case that $\zeta \in \mathbb G$ is a tuple of roots of unity
+    if and only if there exists a \emph{rational} $a \in D \cap \QQ^n$ such that $\exp(a) = \zeta$.
+  \item The restriction of~$\exp$ to~$D$ is a definable function in the structure~$\RR_{\exp}$,
+    which is an \emph{o-minimal} structure.
+    From the point of view of mathematical logic, this means it is exceedingly well-behaved.
+\end{enumerate}
+
+We may now consider the set
+\[ \tilde X = \{ z \in D \mid f(\exp(z)) = 0 \} \]
+which is an example of a \emph{definable set} in~$\RR_{\exp}$.
+This is where the Pila--Wilkie point counting theorem comes in.
+
+Understanding the rational solutions to algebraic equations is a notoriously hard problem.
+But it turns out that one can get a good grip on rational solutions to \emph{transcendental} equations.
+
+Let $Y \subset \RR^m$ be any set, definable in some o-minimal expansion of the reals.
+We define the \emph{algebraic part} $Y^\alg \subset Y$ to be
+the union of all connected, positive dimensional semialgebraic subsets of~$Y$.
+(Recall that a set is semialgebraic if it is definable using Boolean combinations of polynomial inequalities.)
+Next, we define the \emph{transcendental part} of~$Y$ to be $Y - Y^\alg$.
+
+The Pila--Wilkie point counting theorem asserts that there are sub-exponentially many rational points in~$Y^\tra$.
+To make this precise, we introduce the following function,
+which counts rational points of \emph{bounded height}:
+\[
+  N(Y,t) = \# \{ (\tfrac{a_1}{b_1}, \dots, \tfrac{a_n}{b_n}) \in Y^\tra \mid
+  \text{for each $i$ we have }
+  |a_i| \le t, |b_i| \le t, a_i, b_i \in \ZZ \}
+\]
+
+\begin{theorem}[Pila--Wilkie]
+  For each $\epsilon > 0$ there is a constant $C = C_\epsilon$
+  so that $N(Y, t) \le Ct^\epsilon$ for all $t \ge 1$.
+\end{theorem}
+
+Now we return to our definable set of interest: $\tilde X$.
+Using a result by Ax (a function field version of the Schanuel conjecture)
+we can show that $\tilde X^\alg$ is indeed a finite union of cosets of subgroups
+(intersected with $[0,2\pi)^n$).
+
+Hence we are done if we show that $\tilde X^\tra$ only has finitely many rational points.
+This is done by contradiction.
+If there are infinitely many points,
+then one can use Galois theory
+to show that $N(Y, t)$ must exhibit exponential growth.
+This contradicts Pila--Wilkie, so we win.
+
+\section{Introduction}
+
+Give an overview of the seminar.
+A long form of the appetizer above,
+with a bit more details on what is meant with an o-minimal structure.
+
+Besides Manin--Mumford for tori,
+mention applications to Manin--Mumford for abelian varieties
+as well as the Andr\'e--Oort conjecture for Shimura varieties.
+
+\subsection*{Reference} \S1 and \S2 (aka p1--5) of~\cite{scanlon}
+
+\section{O-minimality, part I}
+
+\subsection*{Reference} \S3.1 (aka p6--10) of~\cite{scanlon}
+
+\section{O-minimality, part II}
+
+State theorems of Tarski and Wilkie.
+Discuss proof of Tarski's theorem in some detail?
+
+Explain what it means that $\RR_\exp$ is model complete,
+but don't discuss the proof of Wilkie's theorem.
+
+State theorem by Van den Dries, that $\RR_\an$ is o-minimal.
+
+\subsection*{Reference} first half of \S3.2 (aka p10--14) of~\cite{scanlon}
+
+\section{O-minimality, part III}
+
+\subsection*{Reference} second half of \S3.2 (aka p14--18) of~\cite{scanlon}
+
+\section{Manin--Mumford for tori}
+
+Make the appetizer precise.
+See \S5 of~\cite{csp} for detailed calculations.
 
 \printbibliography
 
