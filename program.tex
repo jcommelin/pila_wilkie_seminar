@@ -49,6 +49,7 @@ Consider the following statement (a special case of Manin--Mumford):
 Originally, this statement was proven by Mann,
 but we will be interested in the Pila--Zannier argument.
 It goes as follows.
+Let $\exp \colon \CC \to \CC^*$ denote the function $z \mapsto e^{2\pi iz}$.
 Observe that there is an analytic covering $\exp \colon \CC^n \to \mathbb G$.
 A tuple $\zeta = (\zeta_1, \dots, \zeta_n)$ consists of roots of unity
 if and only if there is some rational $a \in \QQ^n$ such that $\exp(a) = \zeta$.
@@ -58,7 +59,7 @@ a question about rational solutions to the transcendental equation $f(\exp(z)) =
 It may seem as if we have made the problem a lot more difficult.
 However, by restricting to a fundamental domain
 \[
-  D = \{ (z_1, \dots, z_n) \in \CC^n \mid 0 \le \Im(z_i) < 2\pi \text{ for each $i$}\}
+  D = \{ (z_1, \dots, z_n) \in \CC^n \mid 0 \le \Re(z_i) < 1 \text{ for each $i$}\}
 \]
 we end up in a \emph{tame} situation.
 
